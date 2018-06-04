@@ -1,7 +1,7 @@
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
-const database = require('../config/database.js');
+//const database = require('../config/database.js');
 const qs = require('querystring');
 
 module.exports = (req, res) => {
