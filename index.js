@@ -1,18 +1,14 @@
-const http = require('http');
 const port = 3000;
-const handlers = require('./handlers');
-
-let enviorment = process.env.Node_ENV || 'development';
 const config = require('./config/config');
 const database = require('./config/database.config');
+const express = require('express');
+
+let app = express();
+let enviorment = process.env.Node_ENV || 'development';
 
 database(config[enviorment]);
+require('./config/express')(app, config[enviorment]);
+require('./config/routes')(app);
 
-http.createServer((req, res) => {
-
-    for(let handler of handlers){
-        if(!handler(req, res)){
-            break;
-        }
-    }
-}).listen(port);
+app.listen(port);
+console.log('slusham')
