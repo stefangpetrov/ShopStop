@@ -10,5 +10,7 @@ database(config[enviorment]);
 require('./config/express')(app, config[enviorment]);
 require('./config/routes')(app);
 
+require('./config/passport')();
+
 app.listen(port);
-console.log('slusham')
+console.log('slusham');
